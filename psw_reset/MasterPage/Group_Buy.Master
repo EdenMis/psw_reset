@@ -1,0 +1,109 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Group_Buy.master.cs" Inherits="psw_reset.MasterPage.Group_Buy" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <title>團購系統</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../jquery/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: #E6DFD5">
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+            <div class="col-md-9">
+                <h1>團購系統</h1><h5><span style="color: red">功能追加，新增跟團群的功能 - </span><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="https://youtu.be/vlHrQgRCLZw" Target="_blank">教學影片</asp:HyperLink></h5>
+            </div>
+            <div class="col-md-3" style="text-align: right;">
+                <asp:Label ID="lab_name" runat="server" Text="Label"></asp:Label>&nbsp;&nbsp;
+                <asp:Button ID="Button2" class="btn btn-default" runat="server" Text="回首頁" UseSubmitBehavior="false" OnClick="Button2_Click" />
+                <asp:Button ID="Button1" class="btn btn-default" runat="server" Text="登出系統" UseSubmitBehavior="false" OnClientClick="if(confirm('是否確認登出系統？')==false){return false}" OnClick="Button1_Click" />
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 16px">我的團購資訊<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../GroupBuy/Open_buy.aspx" style="font-size: 16px" target="_blank">我要開團</a></li>
+                                <li><a href="../GroupBuy/index.aspx" style="font-size: 16px" target="_blank">我要跟團</a></li>
+                                <li><a href="../GroupBuy/My_Open_Group.aspx" style="font-size: 16px">我的開團</a></li>
+                                <li><a href="../GroupBuy/My_Follow_Group.aspx" style="font-size: 16px">我的跟團</a></li>
+                            </ul>
+                        </li>
+                               <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 16px">我的跟團群<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../GroupBuy/user_group_list.aspx" style="font-size: 16px" target="_blank">維護跟團群</a></li>
+                            </ul>
+                        </li>
+                             <li class="dropdown" runat="server" id="lunch_list" visible="false">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 16px">我的午餐資訊<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../GroupBuy/index.aspx" style="font-size: 16px">我要訂餐</a></li>
+                                <li><a href="../GroupBuy/My_lunch_order.aspx" style="font-size: 16px">我的訂餐</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 16px">團購店家維護<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../GroupBuy/add_group_store.aspx" style="font-size: 16px" target="_blank">新增店家</a></li>
+                                <li><a href="../GroupBuy/Group_store_management.aspx" style="font-size: 16px">維護店家</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 16px">使用教學<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li runat="server" id="lunch_list2" visible="false"><a href="http://smart.eden.org.tw/訂餐系統_午餐訂餐功能使用說明.pdf" style="font-size: 16px" target="_blank">午餐訂餐教學</a></li>
+                                <li><a href="http://smart.eden.org.tw/訂餐系統_團購功能使用說明.pdf" style="font-size: 16px" target="_blank">團購功能教學</a></li> 
+                            </ul>
+                        </li>
+                        <li class="dropdown" runat="server" id="list_lunch_management" visible="false">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 16px">午餐管理<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../GroupBuy/Lunch_Store_management.aspx" style="font-size: 16px" target="_blank">午餐管理</a></li>
+                                <li><a href="../GroupBuy/Lunch_order_list.aspx" style="font-size: 16px" target="_blank">訂餐列表</a></li>
+                            </ul>
+                        </li>       
+                    </ul>
+                </div>
+
+                <div class="col-md-12">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+
+        //function opencolorbox() {
+        //    $.colorbox({
+        //        width: "95%",  //colorbox寬度
+        //        height: "95%", //colorbox高度
+        //        escKey: false, //案下esc是否關閉colorbox  沒設定預設為true
+        //        iframe: true,  //以iframe型式開啟
+        //        href:"../Requisition/ApplicationDetails.aspx?BPM_serial={0}"//colorbox嵌入的頁面
+        //        //了解更多，請參考作者頁面
+
+        //    });
+        //}
+
+        //$(document).ready(function () {
+        //    $("a").colorbox({
+        //        width: "95%",
+        //        height: "95%",
+        //    });
+        //});
+    </script>
+</body>
+</html>

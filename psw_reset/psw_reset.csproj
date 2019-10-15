@@ -1,0 +1,646 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40C7AA81-945A-40DD-86D7-D54A81F6CAF6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>psw_reset</RootNamespace>
+    <AssemblyName>psw_reset</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.12.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.12\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Xceed.Words.NET, Version=1.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Xceed.Words.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ADD_USER.aspx" />
+    <Content Include="assets\css\custom.css" />
+    <Content Include="assets\css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="assets\img\user.jpg" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.min.css" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap-3.3.7-dist\js\bootstrap.js" />
+    <Content Include="bootstrap-3.3.7-dist\js\bootstrap.min.js" />
+    <Content Include="bootstrap-3.3.7-dist\js\npm.js" />
+    <Content Include="check_ok.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="colorbox\colorbox.css" />
+    <Content Include="colorbox\images\border.png" />
+    <Content Include="colorbox\images\controls.png" />
+    <Content Include="colorbox\images\loading.gif" />
+    <Content Include="colorbox\images\loading_background.png" />
+    <Content Include="colorbox\images\overlay.png" />
+    <Content Include="colorbox\jquery-1.10.2.min.js" />
+    <Content Include="colorbox\jquery.colorbox.js" />
+    <Content Include="dateCss\alertify.bootstrap.css" />
+    <Content Include="dateCss\alertify.core.css" />
+    <Content Include="dateCss\alertify.default.css" />
+    <Content Include="dateCss\bootstrap-datetimepicker-standalone.css" />
+    <Content Include="dateCss\bootstrap-datetimepicker.css" />
+    <Content Include="dateCss\bootstrap-datetimepicker.min.css" />
+    <Content Include="dateCss\bootstrap-datetimepicker.min.js" />
+    <Content Include="dateCss\datepicker.css" />
+    <Content Include="dateCss\datepicker.js" />
+    <Content Include="dateCss\datepicker.zh-CN.js" />
+    <Content Include="dateCss\jquery.datetimepicker.full.js" />
+    <Content Include="dateCss\jquery.datetimepicker.full.min.js" />
+    <Content Include="dateCss\jquery.datetimepicker.min.css" />
+    <Content Include="dateCss\jquery.datetimepicker.min.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-addon-i18n.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-addon-i18n.min.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-af.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-am.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-bg.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-ca.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-cs.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-da.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-de.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-el.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-es.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-et.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-eu.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-fa.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-fi.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-fr.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-gl.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-he.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-hr.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-hu.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-id.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-it.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-ja.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-ko.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-lt.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-lv.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-mk.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-nl.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-no.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-pl.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-pt-BR.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-pt.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-ro.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-ru.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-sk.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-sl.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-sq.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-sr-RS.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-sr-YU.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-sv.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-th.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-tr.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-uk.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-vi.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-zh-CN.js" />
+    <Content Include="dist\i18n\jquery-ui-timepicker-zh-TW.js" />
+    <Content Include="dist\jquery-ui-sliderAccess.js" />
+    <Content Include="dist\jquery-ui-timepicker-addon.css" />
+    <Content Include="dist\jquery-ui-timepicker-addon.js" />
+    <Content Include="dist\jquery-ui-timepicker-addon.min.css" />
+    <Content Include="dist\jquery-ui-timepicker-addon.min.js" />
+    <Content Include="eClock.aspx" />
+    <Content Include="EDEN_Encode.dll" />
+    <Content Include="Edit_User.aspx" />
+    <Content Include="eip_post.aspx" />
+    <Content Include="GroupBuy\add_group_store.aspx" />
+    <Content Include="GroupBuy\edit_group_store.aspx" />
+    <Content Include="GroupBuy\edit_user_group_list.aspx" />
+    <Content Include="GroupBuy\Group_store_management.aspx" />
+    <Content Include="GroupBuy\index.aspx" />
+    <Content Include="GroupBuy\index2.aspx" />
+    <Content Include="GroupBuy\login.aspx" />
+    <Content Include="GroupBuy\Lunch_order_detail.aspx" />
+    <Content Include="GroupBuy\Lunch_order_list.aspx" />
+    <Content Include="GroupBuy\Lunch_Store_management.aspx" />
+    <Content Include="GroupBuy\Lunch_voting.aspx" />
+    <Content Include="GroupBuy\My_Follow_Group.aspx" />
+    <Content Include="GroupBuy\My_lunch_order.aspx" />
+    <Content Include="GroupBuy\My_Open_Group.aspx" />
+    <Content Include="GroupBuy\My_Open_Group_detail.aspx" />
+    <Content Include="GroupBuy\Open_buy.aspx" />
+    <Content Include="GroupBuy\open_detail.aspx" />
+    <Content Include="GroupBuy\SSO_Eip.aspx" />
+    <Content Include="GroupBuy\Store_evaluation.aspx" />
+    <Content Include="GroupBuy\TEST.aspx" />
+    <Content Include="GroupBuy\user_group_list.aspx" />
+    <Content Include="IntraWare.dll" />
+    <Content Include="jquery-ui-1.12.1\AUTHORS.txt" />
+    <Content Include="jquery-ui-1.12.1\external\jquery\jquery.js" />
+    <Content Include="jquery-ui-1.12.1\images\ui-icons_444444_256x240.png" />
+    <Content Include="jquery-ui-1.12.1\images\ui-icons_555555_256x240.png" />
+    <Content Include="jquery-ui-1.12.1\images\ui-icons_777620_256x240.png" />
+    <Content Include="jquery-ui-1.12.1\images\ui-icons_777777_256x240.png" />
+    <Content Include="jquery-ui-1.12.1\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="jquery-ui-1.12.1\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="jquery-ui-1.12.1\index.html" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.css" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.js" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.min.css" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.min.js" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.structure.css" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.structure.min.css" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.theme.css" />
+    <Content Include="jquery-ui-1.12.1\jquery-ui.theme.min.css" />
+    <Content Include="jquery-ui-1.12.1\LICENSE.txt" />
+    <Content Include="jquery\alertify.min.js" />
+    <Content Include="jquery\exif.js" />
+    <Content Include="jquery\FileSaver.js" />
+    <Content Include="jquery\jquery-1.9.1.js" />
+    <Content Include="jquery\jquery-1.9.1.min.js" />
+    <Content Include="jquery\jquery.blockUI.js" />
+    <Content Include="mail_test.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="jquery\blockUI.jquery.json" />
+    <Content Include="jquery\bower.json" />
+    <Content Include="jquery\composer.json" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Pms_SSO.aspx" />
+    <Content Include="Privilege_control\Group_Privilege_Control.aspx" />
+    <Content Include="Privilege_control\index.aspx" />
+    <Content Include="Privilege_control\User_Pirvilege_Inquire.aspx" />
+    <Content Include="pwd_change.aspx" />
+    <Content Include="pwd_forget.aspx" />
+    <Content Include="MasterPage\Group_Buy.Master" />
+    <Content Include="jquery-ui-1.12.1\package.json" />
+    <Content Include="MasterPage\Burger_meun.Master" />
+    <Content Include="Internet_Bank_Application.aspx" />
+    <Content Include="TEST2.aspx" />
+    <Content Include="TEST3.aspx" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm3.aspx" />
+    <Content Include="WebRTC\WEBRTC.aspx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="password_reset_mis.aspx" />
+    <Content Include="pwd_reset.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADD_USER.aspx.cs">
+      <DependentUpon>ADD_USER.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADD_USER.aspx.designer.cs">
+      <DependentUpon>ADD_USER.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eClock.aspx.cs">
+      <DependentUpon>eClock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eClock.aspx.designer.cs">
+      <DependentUpon>eClock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_User.aspx.cs">
+      <DependentUpon>Edit_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit_User.aspx.designer.cs">
+      <DependentUpon>Edit_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eip_post.aspx.cs">
+      <DependentUpon>eip_post.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eip_post.aspx.designer.cs">
+      <DependentUpon>eip_post.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\add_group_store.aspx.cs">
+      <DependentUpon>add_group_store.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\add_group_store.aspx.designer.cs">
+      <DependentUpon>add_group_store.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\edit_group_store.aspx.cs">
+      <DependentUpon>edit_group_store.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\edit_group_store.aspx.designer.cs">
+      <DependentUpon>edit_group_store.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\edit_user_group_list.aspx.cs">
+      <DependentUpon>edit_user_group_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\edit_user_group_list.aspx.designer.cs">
+      <DependentUpon>edit_user_group_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\Group_store_management.aspx.cs">
+      <DependentUpon>Group_store_management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\Group_store_management.aspx.designer.cs">
+      <DependentUpon>Group_store_management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\index2.aspx.cs">
+      <DependentUpon>index2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\index2.aspx.designer.cs">
+      <DependentUpon>index2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_order_detail.aspx.cs">
+      <DependentUpon>Lunch_order_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_order_detail.aspx.designer.cs">
+      <DependentUpon>Lunch_order_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_order_list.aspx.cs">
+      <DependentUpon>Lunch_order_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_order_list.aspx.designer.cs">
+      <DependentUpon>Lunch_order_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_Store_management.aspx.cs">
+      <DependentUpon>Lunch_Store_management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_Store_management.aspx.designer.cs">
+      <DependentUpon>Lunch_Store_management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_voting.aspx.cs">
+      <DependentUpon>Lunch_voting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\Lunch_voting.aspx.designer.cs">
+      <DependentUpon>Lunch_voting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\My_Follow_Group.aspx.cs">
+      <DependentUpon>My_Follow_Group.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\My_Follow_Group.aspx.designer.cs">
+      <DependentUpon>My_Follow_Group.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\My_lunch_order.aspx.cs">
+      <DependentUpon>My_lunch_order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\My_lunch_order.aspx.designer.cs">
+      <DependentUpon>My_lunch_order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\My_Open_Group.aspx.cs">
+      <DependentUpon>My_Open_Group.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\My_Open_Group.aspx.designer.cs">
+      <DependentUpon>My_Open_Group.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\My_Open_Group_detail.aspx.cs">
+      <DependentUpon>My_Open_Group_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\My_Open_Group_detail.aspx.designer.cs">
+      <DependentUpon>My_Open_Group_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\Open_buy.aspx.cs">
+      <DependentUpon>Open_buy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\Open_buy.aspx.designer.cs">
+      <DependentUpon>Open_buy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\open_detail.aspx.cs">
+      <DependentUpon>open_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\open_detail.aspx.designer.cs">
+      <DependentUpon>open_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\SSO_Eip.aspx.cs">
+      <DependentUpon>SSO_Eip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\SSO_Eip.aspx.designer.cs">
+      <DependentUpon>SSO_Eip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\Store_evaluation.aspx.cs">
+      <DependentUpon>Store_evaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\Store_evaluation.aspx.designer.cs">
+      <DependentUpon>Store_evaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\TEST.aspx.cs">
+      <DependentUpon>TEST.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\TEST.aspx.designer.cs">
+      <DependentUpon>TEST.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBuy\user_group_list.aspx.cs">
+      <DependentUpon>user_group_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupBuy\user_group_list.aspx.designer.cs">
+      <DependentUpon>user_group_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mail_test.aspx.cs">
+      <DependentUpon>mail_test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mail_test.aspx.designer.cs">
+      <DependentUpon>mail_test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\Burger_meun.Master.cs">
+      <DependentUpon>Burger_meun.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Burger_meun.Master.designer.cs">
+      <DependentUpon>Burger_meun.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\Group_Buy.Master.cs">
+      <DependentUpon>Group_Buy.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Group_Buy.Master.designer.cs">
+      <DependentUpon>Group_Buy.Master</DependentUpon>
+    </Compile>
+    <Compile Include="password_reset_mis.aspx.cs">
+      <DependentUpon>password_reset_mis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="password_reset_mis.aspx.designer.cs">
+      <DependentUpon>password_reset_mis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pms_SSO.aspx.cs">
+      <DependentUpon>Pms_SSO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pms_SSO.aspx.designer.cs">
+      <DependentUpon>Pms_SSO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Privilege_control\Group_Privilege_Control.aspx.cs">
+      <DependentUpon>Group_Privilege_Control.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Privilege_control\Group_Privilege_Control.aspx.designer.cs">
+      <DependentUpon>Group_Privilege_Control.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Privilege_control\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Privilege_control\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Privilege_control\User_Pirvilege_Inquire.aspx.cs">
+      <DependentUpon>User_Pirvilege_Inquire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Privilege_control\User_Pirvilege_Inquire.aspx.designer.cs">
+      <DependentUpon>User_Pirvilege_Inquire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pwd_change.aspx.cs">
+      <DependentUpon>pwd_change.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pwd_change.aspx.designer.cs">
+      <DependentUpon>pwd_change.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pwd_forget.aspx.cs">
+      <DependentUpon>pwd_forget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pwd_forget.aspx.designer.cs">
+      <DependentUpon>pwd_forget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pwd_reset.aspx.cs">
+      <DependentUpon>pwd_reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pwd_reset.aspx.designer.cs">
+      <DependentUpon>pwd_reset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Internet_Bank_Application.aspx.cs">
+      <DependentUpon>Internet_Bank_Application.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Internet_Bank_Application.aspx.designer.cs">
+      <DependentUpon>Internet_Bank_Application.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TEST2.aspx.cs">
+      <DependentUpon>TEST2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TEST2.aspx.designer.cs">
+      <DependentUpon>TEST2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TEST3.aspx.cs">
+      <DependentUpon>TEST3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TEST3.aspx.designer.cs">
+      <DependentUpon>TEST3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebRTC\WEBRTC.aspx.cs">
+      <DependentUpon>WEBRTC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebRTC\WEBRTC.aspx.designer.cs">
+      <DependentUpon>WEBRTC.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="EDEN_Encode">
+      <Guid>{67709A59-F1E1-4BBD-A290-321FBE9A8D7D}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="menu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7849</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7849/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 封裝。請啟用 NuGet 封裝還原，以下載該封裝。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

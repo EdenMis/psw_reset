@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Burger_meun.master.cs" Inherits="psw_reset.MasterPage.Burger_meun" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <script src="../jquery/jquery-1.9.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <style>
+        th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: #E6DFD5">
+    <form id="form1" runat="server">
+        <div class="page-wrapper">
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+                    <a href="#" id="toggle-sidebar"><i class="fa fa-bars" style="color: #888888"></i></a>
+                    <div class="sidebar-brand">
+                        <a href="#">輔具租借系統</a>
+                    </div>
+                    <div class="sidebar-header">
+                 <%--       <div class="user-pic">
+                            <img class="img-responsive img-rounded" src="assets/img/user.jpg" alt="">
+                        </div>--%>
+                        <div class="user-info">
+                            <span class="user-name" >目前使用者：黃聖文 <strong>主任</strong></span>
+                            <span class="user-role">目前權限：最高管理者&emsp;部門：最高管理者</span>
+                  
+                 <%--           <div class="user-status">
+                                <a href="#"><span class="label label-success">Online</span></a>
+                            </div>--%>
+                        </div>
+                    </div>
+                    <!-- sidebar-header  -->
+                    <%--          <div class="sidebar-search">
+              <div>                   
+                  <div class="input-group">                          
+                      <input type="text" class="form-control search-menu" placeholder="Search for...">
+                      <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  </div>
+              </div>                    
+          </div><!-- sidebar-search  -->--%>
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="header-menu"><span>功能選單</span></li>
+                             <li><a href="#"><span>諮詢服務</span></a></li>            
+                            <li class="sidebar-dropdown" id="administrative_1">
+                                <a href="#"><%--<i class="fa fa-tv"></i>--%><span>資料查詢</span><%--<span class="label label-danger">New</span>--%></a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li><a href="#">輔具維修單</a></li>
+                                        <li><a href="#">輔具回收/捐贈單</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                              <li class="sidebar-dropdown">
+                                <a href="#"><%--<i class="fa fa-tv"></i>--%><span>輔具管理</span><%--<span class="label label-danger">New</span>--%></a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li><a href="#">所有輔具狀況</a></li>
+                                        <li><a href="#">輔具保證金及租金設定</a></li>           
+                                    </ul>
+                                </div>
+                            </li>      
+                            <%-- <li class="sidebar-dropdown">
+                      <a href="#"><i class="fa fa-diamond"></i><span>Menu 4</span></a>
+                      <div class="sidebar-submenu">
+                          <ul>
+                              <li><a href="#">submenu 1</a></li>
+                              <li><a href="#">submenu 2</a></li>
+                              <li><a href="#">submenu 3</a></li>
+                              <li><a href="#">submenu 4</a></li>
+                          </ul>
+                      </div>
+                  </li>--%>
+                            <%--   <li class="header-menu"><span>Simple menu</span></li>
+                  <li><a href="#"><i class="fa fa-tv"></i><span>Menu 1</span></a></li>                   
+                  <li><a href="#"><i class="fa fa-photo"></i><span>Menu 2</span></a></li>
+                  <li><a href="#"><i class="fa fa-bar-chart-o"></i><span>Menu 3</span></a></li>
+                  <li><a href="#"><i class="fa fa-diamond"></i><span>Menu 4</span></a></li>--%>
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+                <!-- sidebar-content  -->
+
+                <%--          <div class="sidebar-footer">
+              <a href="#"><i class="fa fa-bell"></i><span class="label label-warning notification">3</span></a>
+              <a href="#"><i class="fa fa-envelope"></i><span class="label label-success notification">7</span></a>
+              <a href="#"><i class="fa fa-gear"></i></a>
+              <a href="#"><i class="fa fa-power-off"></i></a>
+          </div>--%>
+            </nav>
+            <!-- sidebar-wrapper  -->
+            <main class="page-content">
+                <div class="container-fluid">
+                   
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+                </div>
+            </main><!-- page-content" -->
+        </div>
+        <!-- page-wrapper -->
+    </form>
+</body>
+</html>
